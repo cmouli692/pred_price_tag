@@ -183,7 +183,7 @@ const priceLabelFunction = () =>
                 <div className="flex-item-container info-container">
                     <p className="first-col-text">Style</p>
                     <p>:</p>
-                    <p className="first-col-text-1">{values[0]}</p>
+                    <p className="first-col-text-1 upper-case">{values[0]}</p>
 
                 </div>
 
@@ -192,7 +192,7 @@ const priceLabelFunction = () =>
                     <p>:</p>
                     <div className="size-parent-container">
                         <div className="size-container">
-                           <p className="size-text" >{values[1]}</p> 
+                           <p className="size-text upper-case" >{values[1]}</p> 
                         </div>
                         
 
@@ -204,21 +204,21 @@ const priceLabelFunction = () =>
                 <div className="flex-item-container info-container">
                     <p className="first-col-text">Colour</p>
                     <p>:</p>
-                    <p className="first-col-text-1">{values[2]}</p>
+                    <p className="first-col-text-1 upper-case">{values[2]}</p>
 
                 </div>
 
                 <div className="flex-item-container info-container">
                     <p className="first-col-text">QTY</p>
                     <p >:</p>
-                    <p className="first-col-text-1">{values[3]}</p>
+                    <p className="first-col-text-1 upper-case">{values[3]}</p>
 
                 </div>
 
                 <div className="flex-item-container info-container">
                     <p className="first-col-text">Material</p>
                     <p>:</p>
-                    <p className="first-col-text-1">{values[4]}</p>
+                    <p className="first-col-text-1 upper-case">{values[4]}</p>
 
                 </div>
 
@@ -238,7 +238,7 @@ const priceLabelFunction = () =>
             <div className="footer-container">
             {/* <hr className="footer-hr"/> */}
                 
-                <p className="footer-paragraph"><span style={{fontWeight:"bold"}}>PRECAUTIONS : </span>{values[6]}</p>
+                <p className="footer-paragraph upper-case"><span style={{fontWeight:"bold"}}>PRECAUTIONS : </span>{values[6]}</p>
             </div> 
         </div>
 

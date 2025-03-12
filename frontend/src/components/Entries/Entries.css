@@ -199,5 +199,9 @@
   .size-parent-container{
     width: 130px;
   }
+
+  .upper-case{
+    text-transform:uppercase;
+  }
   
      
