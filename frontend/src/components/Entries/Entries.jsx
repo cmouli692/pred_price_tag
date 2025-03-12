@@ -158,7 +158,7 @@ const priceLabelFunction = () =>
 
                 <div className="flex-item-container info-container">
                     <p className="first-col-text">Material</p>
-                    <p >:</p>
+                    <p>:</p>
                     <p className="first-col-text-1">{values[4]}</p>
 
                 </div>
