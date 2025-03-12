@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState,useRef  } from "react";
+import html2canvas from "html2canvas";
 import "./Entries.css"
 import PriceLabel from "../PriceLabel/PriceLabel";
 
+
 export default function AutoFocusInputs() {
-  const [values, setValues] = useState(["", "", "", "", "", ""]);
+  const [values, setValues] = useState(["", "", "", "", "", "",""]);
 
   const [isGenerateClicked, toggleGenerate] = useState(false)
 
@@ -23,6 +25,38 @@ export default function AutoFocusInputs() {
     newValues[index] = value;
     setValues(newValues);
   };
+
+//   capture function
+
+  const captureRef = useRef(null);
+
+    // CAPTURE AND DOWNLOAD CODE
+
+    const captureDiv = async () => {
+        if (!captureRef.current) return;
+
+        const canvas = await html2canvas(captureRef.current);
+        const imgData = canvas.toDataURL("image/jpeg");
+
+        // Create a download link
+        const link = document.createElement("a");
+        link.href = imgData;
+        link.download = "screenshot.jpg";
+        link.click();
+    };
+
+    // OPEN IN NEW TAB CODE
+
+    // const captureDiv = async () => {
+    //     if (!captureRef.current) return;
+
+    //     const canvas = await html2canvas(captureRef.current);
+    //     const imgData = canvas.toDataURL("image/jpeg");
+
+    //     // Open the image in a new tab
+    //     const newTab = window.open();
+    //     newTab.document.write(`<img src="${imgData}" />`);
+    // };
 
  const generateBtnIsClicked = () =>{
     toggleGenerate(prevValue => !prevValue)
@@ -97,16 +131,29 @@ const entriesFunction = () =>  (
     </div>
 
     <div  style={{marginBottom:"5px"}}>
-    <label htmlFor="country">MRP : </label>
-    <input
-        name="MRP"
-        id="input-5"
-        type="text"
-        value={values[5]}
-        onChange={(e) => handleChange(5, e.target.value)}
-        onKeyDown={(e) => handleKeyDown(e, 5)}
-        required
-    />
+        <label htmlFor="country">MRP : </label>
+        <input
+            name="MRP"
+            id="input-5"
+            type="text"
+            value={values[5]}
+            onChange={(e) => handleChange(5, e.target.value)}
+            onKeyDown={(e) => handleKeyDown(e, 5)}
+            required
+        />
+    </div>
+
+    <div  style={{marginBottom:"5px"}}>
+        <label htmlFor="country">Desc : </label>
+        <input
+            name="Desc"
+            id="input-6"
+            type="text"
+            value={values[6]}
+            onChange={(e) => handleChange(6, e.target.value)}
+            onKeyDown={(e) => handleKeyDown(e, 6)}
+            required
+        />
     </div>
 
     <div  >
@@ -116,14 +163,19 @@ const entriesFunction = () =>  (
 
 const priceLabelFunction = () => 
     (<div className="price-label-container">
-        <div className="label-inner-container">
-            <div className="bar-code-container">
+        <div ref={captureRef} className="label-inner-container">
+            {/* <div className="bar-code-container">
                 <h1 className="bar-code">BAR CODE</h1>
-                {/* <hr className="bar-code-hr"/> */}
+                <hr className="bar-code-hr"/>
 
-            </div>
+            </div> */}
             <div>
                 <h1 className="brand-name">PRΞÐ</h1>
+                <div className="tag-line-container">
+                        <p  className="tag-line">"Your Faith, Your Armor"</p> 
+                </div>
+           
+               
                 <hr className="brand-name-hr"/>
                 
             </div>
@@ -138,7 +190,14 @@ const priceLabelFunction = () =>
                 <div className="flex-item-container info-container">
                     <p className="first-col-text">Size</p>
                     <p>:</p>
-                    <p className="first-col-text-1">{values[1]}</p>
+                    <div className="size-parent-container">
+                        <div className="size-container">
+                           <p className="size-text" >{values[1]}</p> 
+                        </div>
+                        
+
+                    </div>
+                    {/* <p className="first-col-text-1">{values[1]}</p> */}
 
                 </div>
 
@@ -165,9 +224,10 @@ const priceLabelFunction = () =>
 
 
              
-
                 
-                <h1>MRP : ₹{ values[5]}</h1> 
+                
+                <h1 className="mrp-text">MRP : ₹{ values[5]}</h1> 
+                <hr className="mrp-hr"/><p className="made-in-india-text">MADE IN INDIA</p>
                 
 
                 
@@ -178,11 +238,26 @@ const priceLabelFunction = () =>
             <div className="footer-container">
             {/* <hr className="footer-hr"/> */}
                 
-                <p className="footer-paragraph">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt turpis vel velit sagittis, eget ultricies purus volutpat. Duis in nisi sed libero feugiat scelerisque.</p>
+                <p className="footer-paragraph"><span style={{fontWeight:"bold"}}>PRECAUTIONS : </span>{values[6]}</p>
             </div> 
         </div>
+
+     {/* button to capture */}
         
-        
+        {/* <button
+            onClick={captureDiv}
+               
+                className= "capture-and-download-btn"
+            >
+                Capture & Download
+            </button> */}
+
+            <button
+                onClick={captureDiv}
+                className="capture-and-download-btn"
+            >
+                Download
+            </button>
 
     </div>)
 
