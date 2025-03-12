@@ -1,0 +1,97 @@
+.entry-elements-containers{
+    padding: 10px;
+    width: 100%;
+
+
+
+}
+
+.entry-name-label-element{
+    margin-right: 30px;
+}
+
+.button{
+    cursor:pointer ; 
+    background-color:teal ; 
+    color:#ffffff;
+    margin-left:100px;
+    border-radius: 3px;
+    border: none;
+    height: 25px;
+}
+
+.brand-name{
+    font-family: Arial;
+    text-align: center;
+}
+
+.price-label-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-hr{
+    border: 2px solid black;
+    
+}
+
+.brand-name-hr{
+    border: 1px solid black;
+    width: 100%;
+
+}
+
+.bar-code{
+    text-align: center;
+}
+
+.info-container{
+    font-family: Arial;
+    font-weight: bold;
+}
+
+
+
+  .flex-item-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+
+.first-col-text{
+    margin-left: 15px;
+    width: 70px;
+}
+.footer-paragraph{
+    font-weight: bold;
+    font-family: Arial;
+}
+
+.label-inner-container{
+    width: 280px;
+    border-style: solid;
+}
+
+.first-col-text-1{
+    width: 130px;
+}
+
+.info-parent-container{
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.footer-container{
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+
+  
+
+  
+     
